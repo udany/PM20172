@@ -38,7 +38,7 @@ public class TranscriptReaderTest {
         try {
             TranscriptReader reader = new TranscriptReader("./data/mine.pdf");
 
-            String r = reader.read();
+            String r = reader.read(true);
 
             Assert.assertTrue("Outputs a string longer than 0", r.length() > 0);
 

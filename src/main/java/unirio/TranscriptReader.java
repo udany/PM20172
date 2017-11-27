@@ -34,7 +34,7 @@ public class TranscriptReader {
         pageCount = doc.getNumberOfPages();
     }
 
-    private String readPage(int index) throws Exception{
+    public String readPage(int index, boolean normalText) throws Exception{
         if (index > pageCount) {
             throw new Exception("Page is above the page count");
         }
@@ -43,7 +43,7 @@ public class TranscriptReader {
 
         Rectangle rect = page.getPageSize().clone();
 
-        FontFilter fontFilter = new FontFilter(rect);
+        FontFilter fontFilter = new FontFilter(rect, normalText);
         FilteredEventListener listener = new FilteredEventListener();
         LocationTextExtractionStrategy extractionStrategy = listener.attachEventListener(new LocationTextExtractionStrategy(), fontFilter);
         new PdfCanvasProcessor(listener).processPageContent(page);
@@ -51,10 +51,10 @@ public class TranscriptReader {
         return  extractionStrategy.getResultantText();
     }
 
-    public String read() throws Exception{
+    public String read(boolean normalText) throws Exception{
         StringBuilder b = new StringBuilder();
         for (int i = 1; i <= pageCount; i++){
-            b.append(readPage(i));
+            b.append(readPage(i, normalText));
             b.append("\n");
         }
 
@@ -66,8 +66,15 @@ public class TranscriptReader {
     }
 
     private class FontFilter extends TextRegionEventFilter {
+        private boolean isNormal;
+
         public FontFilter(Rectangle filterRect) {
+            this(filterRect, true);
+        }
+
+        public FontFilter(Rectangle filterRect, boolean isNormal) {
             super(filterRect);
+            this.isNormal = isNormal;
         }
 
         @Override
@@ -78,7 +85,9 @@ public class TranscriptReader {
                 PdfFont font = renderInfo.getFont();
                 if (null != font) {
                     String fontName = font.getFontProgram().getFontNames().getFontName();
-                    return !fontName.endsWith("Bold") && !fontName.endsWith("Oblique");
+                    boolean isObliqueOrBold = fontName.endsWith("Bold") || fontName.endsWith("Oblique");
+
+                    return (isNormal && !isObliqueOrBold) || (!isNormal && isObliqueOrBold);
                 }
             }
             return false;
