@@ -1,2 +1,4 @@
 # PM20172
-Repositório referente à turma de 2017.2 de Programação Modular
+Repositório referente ao trabalho de Programação Modular/2017.2
+
+_Por Daniel Andrade_ 
