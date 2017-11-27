@@ -14,20 +14,17 @@ public class SvgPrinter {
         return instance;
     }
 
-
-    private String fileData="";
     private static final String path = "./data/grade.svg";
 
-    private String getData() throws IOException{
-        if (fileData.equals("")){
-            byte[] encoded = Files.readAllBytes(Paths.get(path));
-            fileData =  new String(encoded, StandardCharsets.UTF_8);
-        }
+    private String getData(String file) throws IOException{
+        if (file.equals("")) file = path;
 
-        return fileData;
+        byte[] encoded = Files.readAllBytes(Paths.get(file));
+        return new String(encoded, StandardCharsets.UTF_8);
     }
+
     private void saveData(String data, String file) throws IOException{
-        BufferedWriter writer = new BufferedWriter( new FileWriter(file) );
+        OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8);
 
         try{
             writer.write(data);
@@ -35,8 +32,13 @@ public class SvgPrinter {
             writer.close();
         }
     }
+
     public void print (Transcript t) throws IOException{
-        String data = getData();
+        print(t, "");
+    }
+
+    public void print (Transcript t, String svgFile) throws IOException{
+        String data = getData(svgFile);
         data = data.replaceAll("\\{\\{code}}", getAllCode(t));
 
         saveData(data, t.getStudentCode()+".svg");

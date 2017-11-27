@@ -6,6 +6,7 @@ public class Main {
     public static void main(String[] args){
         try {
             String file = args.length > 0 ? args[0] : "./data/daniel.pdf";
+            String svgFile = args.length > 1 ? args[1] : "";
 
             TranscriptParser parser = new TranscriptParser(file);
             Transcript t = parser.transcript;
@@ -36,7 +37,7 @@ public class Main {
 
             Logger.out(t.currentlyEnrolledClasses()+" matérias em curso");
 
-            SvgPrinter.get().print(t);
+            SvgPrinter.get().print(t, svgFile);
 
         }catch (Exception e){
             Logger.out(e.getMessage());
