@@ -27,6 +27,16 @@ public class TranscriptItem {
         return code.contains("TIN");
     }
 
+    public boolean hasStatus(TranscriptItemStatus... statuses){
+        for(TranscriptItemStatus s : statuses){
+            if (statusCode.equals(s.code)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 
     public static List<String> mandatory = Arrays.asList(
             //1

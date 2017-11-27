@@ -25,8 +25,6 @@ public class TranscriptParser {
     private static Pattern gpaRegex = Pattern.compile("Coeficiente de Rendimento Geral: ([0-9],[0-9]{1,6})");
     private static Pattern semesterRegex = Pattern.compile("Período Atual: ([0-9]{1,2})");
 
-
-    private String header;
     private String body;
 
     public Transcript transcript;
@@ -34,30 +32,26 @@ public class TranscriptParser {
     public TranscriptParser(String src){
         try {
             TranscriptReader reader = new TranscriptReader(src);
+            body = reader.read(false);
 
-            /// Returns all text in the first page
-            header = reader.readPage(1, false);
-
-            body = reader.read(true);
-
-            Logger.out(header);
+            //Logger.out(header);
 
             reader.close();
 
-            transcript = parse(header, body);
+            transcript = parse(body);
         }catch (Exception e){
             Logger.out("Error in the parser: "+e.getMessage());
         }
     }
 
-    public static Transcript parse(String header, String body){
+    public static Transcript parse(String body){
         Matcher matcher;
         String name = "", code = "";
         double gpa = 0;
         int semester = 0;
 
         // Student Name
-        matcher = studentNameRegex.matcher(header);
+        matcher = studentNameRegex.matcher(body);
         if (!matcher.find()){
             //Logger.out("No name found, bad luck follows...");
         }else{
@@ -65,7 +59,7 @@ public class TranscriptParser {
         }
 
         // Student Code
-        matcher = studentCodeRegex.matcher(header);
+        matcher = studentCodeRegex.matcher(body);
         if (!matcher.find()){
             //Logger.out("No code found, a storm is coming...");
         }else{
@@ -73,7 +67,7 @@ public class TranscriptParser {
         }
 
         // GPA
-        matcher = gpaRegex.matcher(header);
+        matcher = gpaRegex.matcher(body);
         if (!matcher.find()){
             //Logger.out("No code found, a storm is coming...");
         }else{
@@ -81,7 +75,7 @@ public class TranscriptParser {
         }
 
         // GPA
-        matcher = semesterRegex.matcher(header);
+        matcher = semesterRegex.matcher(body);
         if (!matcher.find()){
             //Logger.out("No code found, a storm is coming...");
         }else{

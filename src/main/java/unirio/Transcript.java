@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
 public class Transcript {
     @Getter private String studentName;
     @Getter private String studentCode;
-    @Getter private double gpa=0;
-    @Getter private int semester=0;
+    @Getter private double gpa;
+    @Getter private int semester;
     @Getter private List<TranscriptItem> items;
 
     public List<TranscriptItem> getItems(){
@@ -37,5 +37,54 @@ public class Transcript {
         // Até 2013 o prazo eram 14 semestres com plano a partir do 11o
         // Depois disso viraram 12 com plano a parir do 7o
         return getEnrollmentYear() >= 2014 ? semester >=7 : semester >= 11;
+    }
+
+    public int mandatoryClassesTaken(){
+        return  filterItems(
+                x ->
+                        x.isMandatory() &&
+                        x.hasStatus(TranscriptItemStatus.Approved, TranscriptItemStatus.Dismissed)
+        ).size();
+    }
+
+    public int mandatoryClassesLeft(){
+        return  TranscriptItem.mandatory.size() - mandatoryClassesTaken();
+    }
+
+    public int currentlyEnrolledClasses(){
+        return  filterItems(
+                x -> x.hasStatus(TranscriptItemStatus.Enrolled)
+        ).size();
+    }
+
+    public int optionalClassesTaken(){
+        return  filterItems(
+                x ->
+                        !x.isMandatory() &&
+                                x.belongsToBSI() &&
+                                x.hasStatus(TranscriptItemStatus.Approved, TranscriptItemStatus.Dismissed)
+        ).size();
+    }
+
+    private static final int optionalClasses = 8;
+    public int optionalClassesLeft(){
+        return optionalClasses - optionalClassesTaken();
+    }
+
+    public int electiveClassesTaken(){
+        return  filterItems(
+                x ->
+                        !x.isMandatory() &&
+                        !x.belongsToBSI() &&
+                        x.hasStatus(TranscriptItemStatus.Approved, TranscriptItemStatus.Dismissed)
+        ).size();
+    }
+    private static final int electiveClasses = 4;
+    public int electiveClassesLeft(){
+        return electiveClasses - electiveClassesTaken();
+    }
+
+    public int classesLeft(){
+        return mandatoryClassesLeft() + optionalClassesLeft() + electiveClassesLeft();
     }
 }
