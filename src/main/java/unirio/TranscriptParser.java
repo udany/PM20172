@@ -22,6 +22,7 @@ public class TranscriptParser {
 
     private static Pattern studentNameRegex = Pattern.compile("Nome Aluno: ([a-zA-Z\\s]*)\n");
     private static Pattern studentCodeRegex = Pattern.compile("Matrícula: ([0-9]{11})");
+    private static Pattern gpaRegex = Pattern.compile("Coeficiente de Rendimento Geral: ([0-9],[0-9]{1,6})");
 
 
     private String header;
@@ -50,7 +51,7 @@ public class TranscriptParser {
 
     public static Transcript parse(String header, String body){
         Matcher matcher;
-        String name = "", code = "";
+        String name = "", code = "", gpa = "";
 
         // Student Name
         matcher = studentNameRegex.matcher(header);
@@ -67,6 +68,15 @@ public class TranscriptParser {
             //Logger.out("No code found, a storm is coming...");
         }else{
             code = matcher.group(1);
+        }
+
+
+        // GPA
+        matcher = gpaRegex.matcher(header);
+        if (!matcher.find()){
+            //Logger.out("No code found, a storm is coming...");
+        }else{
+            gpa = matcher.group(1);
         }
 
         // Items
@@ -90,6 +100,7 @@ public class TranscriptParser {
         return Transcript.builder()
                 .studentName(name)
                 .studentCode(code)
+                .gpaString(gpa)
                 .items(items)
                 .build();
     }
