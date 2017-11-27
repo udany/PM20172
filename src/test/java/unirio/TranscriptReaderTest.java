@@ -25,7 +25,7 @@ public class TranscriptReaderTest {
     @Test
     public void opensFileSuccessfully() throws Exception {
         try {
-            TranscriptReader reader = new TranscriptReader("./data/mine.pdf");
+            TranscriptReader reader = new TranscriptReader("./data/daniel.pdf");
 
             reader.close();
         }catch (FileNotFoundException e){
@@ -36,7 +36,7 @@ public class TranscriptReaderTest {
     @Test
     public void outputsText() throws Exception {
         try {
-            TranscriptReader reader = new TranscriptReader("./data/mine.pdf");
+            TranscriptReader reader = new TranscriptReader("./data/daniel.pdf");
 
             String r = reader.read(true);
 

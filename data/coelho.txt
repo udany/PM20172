@@ -1,0 +1,51 @@
+Universidade Federal do Estado do Rio de Janeiro (UNIRIO)
+Data: 27/11/2017
+Hora: 04:19
+11.02.05.99.33 - Historico escolar com  Calculo CR - Aprovados
+Curso: 210 - Sistemas de Informação - Bacharelado - Turno Integral (V/N) - código e-MEC 20065 Versão: 2008/1
+Período Atual: 2º Semestre
+Matrícula: 20171210038
+Nome Aluno: DANIEL COELHO DE OLIVEIRA
+Período: 1°. semestre de 2017
+Código Nome Disciplina/Atividade CR. C.H. Média Freq. Situação Local
+HTD0058 TEORIAS E PRÁTICAS DISCURSIVAS NA ESFERA 3 60 8,50 100,00 APV- Aprovado
+ACADÊMICA
+TIN0054 Atividades Curriculares de Extensão 1 3 90 100,00 ASC - Reprovado sem nota
+TIN0106 DESENVOLVIMENTO DE PÁGINAS WEB 4 60 8,50 100,00 APV- Aprovado
+TIN0107 TÉCNICAS DE PROGRAMAÇÃO I 5 90 9,20 94,44 APV- Aprovado
+TIN0108 ORGANIZAÇÃO DE COMPUTADORES 4 60 8,90 100,00 APV- Aprovado
+TIN0112 FUNDAMENTOS DE SISTEMAS DE INFORMAÇÃO 4 60 9,50 100,00 APV- Aprovado
+TME0101 MATEMÁTICA BÁSICA 2 30 8,00 100,00 APV- Aprovado
+Total Créditos/Carga Horária cursados no Período: : 22 360 Coeficiente de Rendimento: 8,8681
+Período: 2°. semestre de 2017
+Código Nome Disciplina/Atividade CR. C.H. Média Freq. Situação Local
+HTD0049 FUNDAMENTOS DE INGLÊS INSTRUMENTAL 3 60 100,00 ASC - Matrícula
+TEP0001 DESENHO E EXPRESSÃO GRÁFICA I 3 60 100,00 ASC - Matrícula
+TIN0011 TÉCNICAS DE PROGRAMAÇÃO II 5 90 100,00 ASC - Matrícula
+TIN0013 Análise Empresarial e Administrativa 4 60 100,00 ASC - Matrícula
+TIN0054 Atividades Curriculares de Extensão 1 3 90 100,00 ASC - Matrícula
+TIN0105 INTRODUÇÃO À LÓGICA COMPUTACIONAL 4 60 100,00 ASC - Matrícula
+TIN0110 INTERAÇÃO HUMANO-COMPUTADOR 4 60 100,00 ASC - Matrícula
+TIN0141 TÓPICOS AVANÇADOS EM REDES DE COMPUTADORES I 4 60 100,00 ASC - Matrícula
+TME0015 Álgebra Linear 4 60 100,00 ASC - Matrícula
+Total Créditos/Carga Horária cursados no Período: : 0 0 Coeficiente de Rendimento: 0,0000
+Total Geral Créditos/Carga Horária cursados no Período 22 360 Coeficiente de Rendimento Geral: 8,8681
+Créditos Carga Horária
+Exigida / Vencida Exigida / Vencida
+08. Outras Áreas da Computação - OPTATIVAS - 480 Horas 0 / 0 480 / 0
+11.3. Trabalho de Conclusão Final de Curso - 150 Horas 0 / 0 150 / 0
+11.2. Formação Complementar 0 / 0 240 / 0
+11.1. Atividades Complementares - 360 Horas 0 / 0 360 / 0
+10. Cominucação - 60 Horas 0 / 3 60 / 60
+09. Matemática e Estatística -330 Horas 0 / 2 330 / 30
+01. Fundamentação Mat. da Ciência da Computação - 240 Horas 0 / 0 240 / 0
+07. Ciências Administrativas - 180 Horas 0 / 0 180 / 0
+06. Banco de Dados - 180 Horas 0 / 0 180 / 0
+05. Engenharia de Software - 300 Horas 0 / 0 300 / 0
+04.Arquitetura de Comp ,Sistemas Oper. e Redes - 240 Horas 0 / 4 240 / 60
+03. Sistemas de Informação - 180 Horas 0 / 8 180 / 120
+02. Programação e Estruturas de Dados - 300 Horas 0 / 5 300 / 90
+Autenticação: A0DF.78A5.2240.2B8B.81DD.678A.0191.3C67
+Consultar em: https://portais.unirio.br:8443/relatorios/publico/autenticacao/form.action
+Validade: 90 dia(s).
+Página.: 1
