@@ -21,5 +21,26 @@
       <version>4.5</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- always needed -->
+    <dependency>
+      <groupId>com.itextpdf</groupId>
+      <artifactId>kernel</artifactId>
+      <version>7.0.5</version>
+    </dependency>
+
+    <!-- always needed -->
+    <dependency>
+      <groupId>com.itextpdf</groupId>
+      <artifactId>io</artifactId>
+      <version>7.0.5</version>
+    </dependency>
+
+    <!-- always needed -->
+    <dependency>
+      <groupId>com.itextpdf</groupId>
+      <artifactId>layout</artifactId>
+      <version>7.0.5</version>
+    </dependency>
   </dependencies>
 </project>
