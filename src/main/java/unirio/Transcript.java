@@ -84,7 +84,28 @@ public class Transcript {
         return electiveClasses - electiveClassesTaken();
     }
 
+
     public int classesLeft(){
         return mandatoryClassesLeft() + optionalClassesLeft() + electiveClassesLeft();
+    }
+
+    public boolean canFinishInTime(){
+        int maxTime = getEnrollmentYear() >= 2014 ? 12 : 14;
+        int minTimeLeft = (int)Math.ceil(classesLeft()/7);
+
+        return (minTimeLeft + semester) <= maxTime;
+    }
+
+
+    public boolean shouldBeExpelled(){
+        if (gpa >= 4) return false;
+
+        for (TranscriptItem i : items){
+            if (filterItems(x->x.getCode().equals(i.getCode()) && x.hasStatus(TranscriptItemStatus.FailedToAtt, TranscriptItemStatus.Failed)).size() >=4){
+                return true;
+            }
+        }
+
+        return false;
     }
 }
