@@ -1,5 +1,6 @@
 package unirio;
 
+import sun.rmi.runtime.Log;
 import util.Logger;
 
 import java.util.ArrayList;
@@ -32,12 +33,12 @@ public class TranscriptParser {
         try {
             TranscriptReader reader = new TranscriptReader(src);
 
+            /// Returns all text in the first page
             header = reader.readPage(1, false);
 
             body = reader.read(true);
 
             Logger.out(header);
-            Logger.out(body);
 
             reader.close();
 
@@ -54,7 +55,7 @@ public class TranscriptParser {
         // Student Name
         matcher = studentNameRegex.matcher(header);
         if (!matcher.find()){
-            Logger.out("No name found, bad luck follows...");
+            //Logger.out("No name found, bad luck follows...");
         }else{
             name = matcher.group(1);
         }
@@ -63,7 +64,7 @@ public class TranscriptParser {
         // Student Code
         matcher = studentCodeRegex.matcher(header);
         if (!matcher.find()){
-            Logger.out("No code found, a storm is coming...");
+            //Logger.out("No code found, a storm is coming...");
         }else{
             code = matcher.group(1);
         }

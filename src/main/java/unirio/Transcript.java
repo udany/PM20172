@@ -20,4 +20,8 @@ public class Transcript {
     public List<TranscriptItem> getItems(){
         return Collections.unmodifiableList(items);
     }
+
+    public int getEnrollmentYear(){
+        return studentCode.equals("") ? 0 : Integer.parseInt(studentCode.substring(0,4));
+    }
 }

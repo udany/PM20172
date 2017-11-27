@@ -87,7 +87,7 @@ public class TranscriptReader {
                     String fontName = font.getFontProgram().getFontNames().getFontName();
                     boolean isObliqueOrBold = fontName.endsWith("Bold") || fontName.endsWith("Oblique");
 
-                    return (isNormal && !isObliqueOrBold) || (!isNormal && isObliqueOrBold);
+                    return !isObliqueOrBold || !isNormal;
                 }
             }
             return false;
