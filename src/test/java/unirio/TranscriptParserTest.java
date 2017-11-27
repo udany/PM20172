@@ -26,7 +26,8 @@ public class TranscriptParserTest {
                 "Período Atual: 3º Semestre\n" +
                 "Matrícula: 20162210010\n" +
                 "Nome Aluno: DANIEL OLIVEIRA ANDRADE\n" +
-                "Período: 2°. semestre de 2016";
+                "Período: 2°. semestre de 2016\n" +
+                "Total Geral Créditos/Carga Horária cursados no Período 22 360 Coeficiente de Rendimento Geral: 8,8681";
 
         String body = "";
 
@@ -35,6 +36,8 @@ public class TranscriptParserTest {
 
         Assert.assertEquals("Name read", "DANIEL OLIVEIRA ANDRADE", t.getStudentName());
         Assert.assertEquals("Code read", "20162210010", t.getStudentCode());
+        Assert.assertEquals("Semester read", 3, t.getSemester());
+        Assert.assertEquals( "GPA read", 8.8681, t.getGpa(), 0.0001);
     }
 
     @Test
